@@ -66,7 +66,7 @@ class Tools( BaseUIController ):
     @web.expose
     def tools_and_job_state( self, trans, **kwd ):
         """
-        fill tools_and_job_state_peer_month.mako template with
+        fill tools_and_job_state_per_month.mako template with
             - the name of the tool
             - the number of jobs using this tool in state 'ok'
             - the number of jobs using this tool in error
@@ -120,9 +120,9 @@ class Tools( BaseUIController ):
                                     message=message )
 
     @web.expose
-    def tools_and_job_state_peer_month (self, trans, **kwd ):
+    def tools_and_job_state_per_month (self, trans, **kwd ):
         """
-        fill tools_and_job_state_peer_month.mako template with
+        fill tools_and_job_state_per_month.mako template with
             - the name of the tool
             - the number of jobs using this tool in state 'ok'
             - the number of jobs using this tool in error
@@ -179,7 +179,7 @@ class Tools( BaseUIController ):
                 data[date_key][1] += int( date_and_jobs_error.get( date, 0 ) )
         
 
-        return trans.fill_template( '/webapps/reports/tools_and_job_state_peer_month.mako',
+        return trans.fill_template( '/webapps/reports/tools_and_job_state_per_month.mako',
                                     data=data,
                                     tool=tool,
                                     user_cutoff=user_cutoff,
@@ -188,7 +188,7 @@ class Tools( BaseUIController ):
     @web.expose
     def tool_execution_time (self, trans, **kwd):
         """
-        Fill th template tool_execution_time.mako with informations:
+        Fill the template tool_execution_time.mako with informations:
             - Tool name
             - Tool average execution time
             - last job execution time
@@ -250,9 +250,9 @@ class Tools( BaseUIController ):
                                     sort_by=sort_by )
 
     @web.expose
-    def tool_execution_time_peer_month (self, trans, **kwd):
+    def tool_execution_time_per_month (self, trans, **kwd):
         """
-        Fill th template tool_execution_time_peer_month.mako with informations:
+        Fill the template tool_execution_time_per_month.mako with informations:
             - Tool average execution time
             - last job execution time
             - min and max execution time
@@ -289,7 +289,7 @@ class Tools( BaseUIController ):
                 self.formated (month[2], color),
                 self.formated (month[3], color))
 
-        return trans.fill_template( '/webapps/reports/tool_execution_time_peer_month.mako',
+        return trans.fill_template( '/webapps/reports/tool_execution_time_per_month.mako',
                                     data=ordered_data,
                                     tool=tool,
                                     descending=descending,
