@@ -193,13 +193,13 @@ class Users( BaseUIController, ReportQueryBuilder ):
         sorting = 0 if kwd.get( 'sorting', 'User' ) == 'User' else 1
         descending = 1 if kwd.get( 'descending', 'desc' ) == 'desc' else -1
         sorting_functions = [
-            lambda first, second: descending if first[0].lower () > second[0].lower () else -descending, \
+            lambda first, second: descending if first[0].lower() > second[0].lower() else -descending,
             lambda first, second: descending if first[1] < second[1] else -descending]
 
         req = sa.select( ( sa.func.count( galaxy.model.History.table.c.id ).label( 'history' ),
             galaxy.model.User.table.c.username.label( 'username' ) ),
             from_obj=[ sa.outerjoin( galaxy.model.History.table, galaxy.model.User.table ) ],
-            whereclause=galaxy.model.History.table.c.user_id==galaxy.model.User.table.c.id,
+            whereclause=galaxy.model.History.table.c.user_id == galaxy.model.User.table.c.id,
             group_by=[ 'username' ],
             order_by=[ sa.desc( 'username' ), 'history' ] )
 
