@@ -43,7 +43,7 @@
                             <option value="asc"> ascending </option>
                         </select>
                         </br>
-                        <button name="action" value="commit">Sort my Data!</button>
+                        <button name="action" value="commit">Sort</button>
                     </p>
                 </form>
             </td>
