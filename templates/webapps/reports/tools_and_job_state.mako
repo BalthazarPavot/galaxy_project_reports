@@ -62,7 +62,7 @@
                 %endif
                 <td>
                 %if data[tool][0] + data[tool][1] != "--":
-                    <a href=tools_and_job_state_peer_month?tool=${tool}>${tool}</a>
+                    <a href=tools_and_job_state_per_month?tool=${tool}>${tool}</a>
                 %else:
                     ${tool}
                 %endif
